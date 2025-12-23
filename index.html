@@ -1,23 +1,10 @@
 <div class="content">
-  <img id="slideImg" src="images/01.png" alt="1月" style="max-width:100%; max-height:100%; object-fit:contain;">
+  <img id="slideImg" src="test1.png" alt="1月" style="max-width:100%; max-height:100%; object-fit:contain;">
 </div>
-<div class="next" id="next">▶︎</div>
-<div class="next" id="prev" style="right:72px;">◀︎</div>
 
 <script>
   const slides = [
-    { month: "1月", src: "test1.png" },
-    { month: "2月", src: "images/02.png" },
-    { month: "3月", src: "images/03.png" },
-    { month: "4月", src: "images/04.png" },
-    { month: "5月", src: "images/05.png" },
-    { month: "6月", src: "images/06.png" },
-    { month: "7月", src: "images/07.png" },
-    { month: "8月", src: "images/08.png" },
-    { month: "9月", src: "images/09.png" },
-    { month: "10月", src: "images/10.png" },
-    { month: "11月", src: "images/11.png" },
-    { month: "12月", src: "images/12.png" }
+    { month: "1月", src: "test1.png" }
   ];
 
   let i = 0;
@@ -25,19 +12,9 @@
   const imgEl = document.getElementById("slideImg");
 
   function render() {
-    monthEl.textContent = slides[i].month;
+    if (monthEl) monthEl.textContent = slides[i].month;
     imgEl.src = slides[i].src;
     imgEl.alt = slides[i].month;
   }
-
-  document.getElementById("next").onclick = () => {
-    i = (i + 1) % slides.length;
-    render();
-  };
-  document.getElementById("prev").onclick = () => {
-    i = (i - 1 + slides.length) % slides.length;
-    render();
-  };
-
   render();
 </script>
